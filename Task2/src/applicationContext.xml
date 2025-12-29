@@ -7,7 +7,7 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
-
+    <context:property-placeholder location="classpath:application.properties" />
     <!-- Define your beans here -->
     <bean id="drawBean3d" class="dependencyInjection.Draw3d">
     </bean>
@@ -22,6 +22,22 @@
     <bean id="mySquare" class="dependencyInjection.Square">
         <property name="draw2d" ref="drawBean2d" />
         <property name="draw3d" ref="drawBean3d" />
+    </bean>
+
+
+
+
+    <bean id ="myDatabase" class="com.InjectingValues.DatabaseOperation">
+        <constructor-arg value="${database.url}"/>
+        <constructor-arg value="${database.username}"/>
+        <constructor-arg value="${database.password}"/>
+
+    </bean>
+    <bean id="myCar" class="com.InjectingValues.Car">
+          <constructor-arg ref="myDatabase" />
+    </bean>
+    <bean id="myPlane" class="com.InjectingValues.Plane">
+        <property name="databaseOperation" ref="myDatabase" />
     </bean>
 
 </beans>

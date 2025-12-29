@@ -18,4 +18,4 @@ public class Main {
         square.drawShape2d();
         square.drawShape3d();
     }
-    }
+}
