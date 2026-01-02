@@ -15,16 +15,16 @@
     <bean id="myCircle" class="com.beanScopes.Circle">
         <constructor-arg ref="draw3dBean"/>
         <constructor-arg ref="draw2dBean"/>
-
     </bean>
-
 
     <bean id="mySquare" class="com.beanScopes.Square" scope="prototype" >
         <property name="draw2d"  ref="draw2dBean"/>
         <property name="draw3d"  ref="draw3dBean"/>
-
     </bean>
 
+    <bean id="init-destroy" class="com.beanScopes.DatabaseOperations" init-method="connectToDatabase" destroy-method="disconnectFromDatabase" >
+
+    </bean>
 
 
 </beans>

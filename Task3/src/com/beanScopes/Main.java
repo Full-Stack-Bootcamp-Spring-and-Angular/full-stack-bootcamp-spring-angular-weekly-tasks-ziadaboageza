@@ -23,6 +23,6 @@ public class Main {
 
         System.out.println(square);
         System.out.println(square2);
-
+        ((ClassPathXmlApplicationContext) container).close();
     }
 }
